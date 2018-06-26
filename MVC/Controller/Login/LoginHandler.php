@@ -1,6 +1,7 @@
 <?php
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		include 'Handler.php';
+		include '../../Model/UserLogin.php';
 		$username = $_POST['username'];
 		$pass = $_POST['password'];
 
@@ -10,6 +11,9 @@
 			header("Location: ../../View/Login/Login_page.php?user=nothing");	
 		}else{
 			if($pass == $user[0]['password']){
+				$_SESSION['username'] = $username;
+				
+
 				header("Location: ../../View");		
 			}else{
 				header("Location: ../../View/Login/Login_page.php?user=salah");	

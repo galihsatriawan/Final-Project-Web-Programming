@@ -4,7 +4,7 @@
 	// Pengecheckan login
 	function is_login(){
 		if(isset($_SESSION['username'])){
-			header("Location: ../../View");
+			
 			return true;
 		}else{
 			return false;

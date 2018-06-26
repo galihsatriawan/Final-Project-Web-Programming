@@ -10,11 +10,10 @@
 	*/
 		include '../../Controller/Login/Handler.php';
 		if(is_login()){
+			header("Location: ../");
 			// echo "sudah_login";
 		}else{
 			// echo "belum login";
-		}
-		
 	?>
 
 	<div class="wrapper_container">
@@ -50,5 +49,9 @@
 			
 		</div>
 	</div>
+
+	<?php 	
+			}
+	?>
 </body>
 </html>
