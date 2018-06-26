@@ -8,7 +8,7 @@
 	/*
 		Pengecheckan Login
 	*/
-		include '../../Controller/Login/LoginHandler.php';
+		include '../../Controller/Login/Handler.php';
 		if(is_login()){
 			// echo "sudah_login";
 		}else{

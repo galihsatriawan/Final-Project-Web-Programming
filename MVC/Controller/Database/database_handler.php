@@ -1,4 +1,5 @@
 <?php
+	 $_GLOBAL['conn'] = null;
 	function pdo_connect(){
 
 		$server = "localhost";
@@ -46,9 +47,13 @@
 	/*
 		Fungsi dibawah ini digunakan untuk SELECT data yang fleksibel	
 	*/
-
-	function get_data_with_more_params_several_field($conn,$tb_name,$fields,$params,$values){
+		//get_data_with_more_params_several_field
+	function select_data($tb_name,$fields,$params,$values){
 		try{
+			if($_GLOBAL['conn']==null){
+				$_GLOBAL['conn'] = pdo_connect();
+			}
+			$conn=$_GLOBAL['conn'];
 			//jadikan field dalam bentuk string
 			$str_fields= convert_field_to_str($fields);
 			if(count($params)==0){
@@ -85,11 +90,15 @@
 	/*
 		Fungsi dibawah ini digunakan untuk INSERT data yang fleksibel	
 	*/
-
-	function insert_data_with_several_field($conn,$tb_name,$fields,$values){
+	// insert_data_with_several_field
+	function insert_data($tb_name,$fields,$values){
 		// INSERT INTO tb_jenis_institusi(kode_jenis_institusi,jenis_institusi) VALUES (1,"Perguruan Tinggi")
 		//jadikan field dalam bentuk string
 		try {
+			if($_GLOBAL['conn']==null){
+				$_GLOBAL['conn'] = pdo_connect();
+			}
+			$conn=$_GLOBAL['conn'];
 							
 	 		$str_fields= convert_field_to_str($fields);
 			$str_values = convert_values_to_str($values); 
@@ -107,10 +116,15 @@
 	/*
 		Fungsi dibawah ini digunakan untuk UPDATE data yang fleksibel	
 	*/
-
-	function update_data_with_several_field_and_params($conn,$tb_name,$fields,$values_fields,$params,$values_params){
+	// update_data_with_several_field_and_params
+	function update_data($tb_name,$fields,$values_fields,$params,$values_params){
 
 		try {
+			if($_GLOBAL['conn']==null){
+				$_GLOBAL['conn'] = pdo_connect();
+			}
+			$conn=$_GLOBAL['conn'];
+						
 			// Params ---> nrp = :nrp				
 	 		$str_params= convert_params_to_str($params);
 			$str_fields = convert_params_to_str($fields); //format sama 
@@ -139,11 +153,17 @@
 	/*
 		Fungsi dibawah ini digunakan untuk DELETE data yang fleksibel	
 	*/
-
-	function delete_data_with_several_params($conn,$tb_name,$params,$values){
+	// delete_data_with_several_params
+	function delete_data($conn,$tb_name,$params,$values){
 
 		try {
+			if($_GLOBAL['conn']==null){
+				$_GLOBAL['conn'] = pdo_connect();
+			}
+			$conn=$_GLOBAL['conn'];
+						
 			// Params ---> nrp = :nrp				
+
 	 		$str_params= convert_params_to_str($params);
 			 
 
