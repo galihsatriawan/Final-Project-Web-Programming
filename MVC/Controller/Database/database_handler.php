@@ -1,16 +1,16 @@
 <?php
-	 $_GLOBAL['conn'] = null;
+	 $GLOBALS['conn'] = null;
 	function pdo_connect(){
 
 		$server = "localhost";
-		$user = "gokil";
-		$pass = "gokil";
+		$user = "root";
+		$pass = "";
 		$dbname = "partnership_db";
 
 		try {
 			$conn = new PDO("mysql:host=$server;dbname=$dbname",$user,$pass);
 			$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-			echo("Success Connect");
+			// echo("Success Connect");
 		} catch (Exception $e) {
 			// echo $e.getMessage();
 			die("Connection failed :".$e.getMessage());
@@ -19,25 +19,25 @@
 		return $conn;
 	}	
 	// pdo_connect();
-	function get_data_with_one_param($conn,$tb_name,$param,$value){
-		$sql = "SELECT * FROM ".$tb_name." WHERE ".$param." = :".$param;
-		// echo "$sql";
-		try {
-			$prepare_query = $conn->prepare($sql);
-			//Bind
-			$prepare_query->bindValue(":".$param,$value);
-			//Eksekusi
-			$prepare_query->execute();
-			//Ambil semua
-			$hasil = $prepare_query->fetchAll();
-			// echo "Sukses juga";
-			print_r($hasil);
-		} catch (Exception $e) {
-			echo "gagal";
-			die("Get data failed :".$e.getMessage());	
-		}
-		return $hasil;
-	}
+	// function get_data_with_one_param($conn,$tb_name,$param,$value){
+	// 	$sql = "SELECT * FROM ".$tb_name." WHERE ".$param." = :".$param;
+	// 	// echo "$sql";
+	// 	try {
+	// 		$prepare_query = $conn->prepare($sql);
+	// 		//Bind
+	// 		$prepare_query->bindValue(":".$param,$value);
+	// 		//Eksekusi
+	// 		$prepare_query->execute();
+	// 		//Ambil semua
+	// 		$hasil = $prepare_query->fetchAll();
+	// 		// echo "Sukses juga";
+	// 		print_r($hasil);
+	// 	} catch (Exception $e) {
+	// 		echo "gagal";
+	// 		die("Get data failed :".$e.getMessage());	
+	// 	}
+	// 	return $hasil;
+	// }
 	/*
 		Contoh Pemakaian
 	 get_data_with_one_param(pdo_connect(),"tb_user","kode_user",1);
@@ -50,15 +50,14 @@
 		//get_data_with_more_params_several_field
 	function select_data($tb_name,$fields,$params,$values){
 		try{
-			if($_GLOBAL['conn']==null){
-				$_GLOBAL['conn'] = pdo_connect();
+			if($GLOBALS['conn']==null){
+				$GLOBALS['conn'] = pdo_connect();
 			}
-			$conn=$_GLOBAL['conn'];
+			$conn=$GLOBALS['conn'];
 			//jadikan field dalam bentuk string
 			$str_fields= convert_field_to_str($fields);
 			if(count($params)==0){
 				$sql = "SELECT ".$str_fields." FROM ".$tb_name;
-
 				$prepare_query = $conn->prepare($sql);
 				$prepare_query->execute();
 
@@ -95,10 +94,10 @@
 		// INSERT INTO tb_jenis_institusi(kode_jenis_institusi,jenis_institusi) VALUES (1,"Perguruan Tinggi")
 		//jadikan field dalam bentuk string
 		try {
-			if($_GLOBAL['conn']==null){
-				$_GLOBAL['conn'] = pdo_connect();
+			if($GLOBALS['conn']==null){
+				$GLOBALS['conn'] = pdo_connect();
 			}
-			$conn=$_GLOBAL['conn'];
+			$conn=$GLOBALS['conn'];
 							
 	 		$str_fields= convert_field_to_str($fields);
 			$str_values = convert_values_to_str($values); 
@@ -120,10 +119,10 @@
 	function update_data($tb_name,$fields,$values_fields,$params,$values_params){
 
 		try {
-			if($_GLOBAL['conn']==null){
-				$_GLOBAL['conn'] = pdo_connect();
+			if($GLOBALS['conn']==null){
+				$GLOBALS['conn'] = pdo_connect();
 			}
-			$conn=$_GLOBAL['conn'];
+			$conn=$GLOBALS['conn'];
 						
 			// Params ---> nrp = :nrp				
 	 		$str_params= convert_params_to_str($params);
@@ -157,10 +156,10 @@
 	function delete_data($conn,$tb_name,$params,$values){
 
 		try {
-			if($_GLOBAL['conn']==null){
-				$_GLOBAL['conn'] = pdo_connect();
+			if($GLOBALS['conn']==null){
+				$GLOBALS['conn'] = pdo_connect();
 			}
-			$conn=$_GLOBAL['conn'];
+			$conn=$GLOBALS['conn'];
 						
 			// Params ---> nrp = :nrp				
 
