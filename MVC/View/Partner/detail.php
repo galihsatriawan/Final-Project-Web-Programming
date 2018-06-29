@@ -8,7 +8,8 @@ include '../../Controller/Database/database_handler.php';
 		<title>DAFTAR PARTNER</title>
 	</head>
 	<body>
-		<?php  $x = select_data("tb_partner",array(),array("kode_institusi"),array($_GET['id'])); ?>
+<?php  $x = select_extra("tb_partner p,tb_jenis_institusi ji",array(),array("kode_institusi"),array("KORE001"),"p.kode_jenis_institusi=ji.kode_jenis_institusi"); ?>
+		
 
 		<table style="border: 1px solid black; text-align: left;">
 			<tr>
@@ -58,6 +59,7 @@ include '../../Controller/Database/database_handler.php';
 			</tr>
 		</table>
 		<br><br>
-		<a href="list_partner.php">Back</a>
+		<a href="list_partner.php">Back</a> 
+		
 	</body>
 </html>

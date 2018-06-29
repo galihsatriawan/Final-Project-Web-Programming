@@ -3,8 +3,8 @@
 	function pdo_connect(){
 
 		$server = "localhost";
-		$user = "root";
-		$pass = "";
+		$user = "gokil";
+		$pass = "gokil";
 		$dbname = "partnership_db";
 
 		try {
@@ -275,5 +275,40 @@
 		return $str;
 	}
 
+	
 	// echo convert_params_to_str(array("test","2"));
+	function select_extra($tb_name,$fields,$params,$values,$add){
+		try{
+			if($GLOBALS['conn']==null){
+				$GLOBALS['conn'] = pdo_connect();
+			}
+			$conn=$GLOBALS['conn'];
+			//jadikan field dalam bentuk string
+			$str_fields= convert_field_to_str($fields);
+			if(count($params)==0){
+				$sql = "SELECT ".$str_fields." FROM ".$tb_name." WHERE ".$add;
+				// echo "$sql";
+				$prepare_query = $conn->prepare($sql);
+				$prepare_query->execute();
+
+			}else{
+				$str_params = convert_params_to_str($params);
+				$sql = "SELECT ".$str_fields." FROM ".$tb_name." WHERE ".$str_params." AND ".$add;
+				// echo "$sql";
+				$prepare_query = $conn->prepare($sql);
+				//Binding
+				for($i=0;$i<count($params);$i++){
+					$prepare_query->bindValue(":".$params[$i],$values[$i]);	
+				}
+				$prepare_query->execute();
+				
+			}
+			// echo "$sql";
+			$hasil = $prepare_query->fetchAll();
+			// var_dump($hasil);
+		} catch (Exception $e) {
+			echo $sql."<br>".$e.getMessage();		
+		}
+		return $hasil;
+	}
 ?>
