@@ -12,7 +12,7 @@
 		}else{
 			if($pass == $user[0]['password']){
 				$_SESSION['username'] = $username;
-				
+				$_SESSION['user'] = $user;
 
 				header("Location: ../../View");		
 			}else{
