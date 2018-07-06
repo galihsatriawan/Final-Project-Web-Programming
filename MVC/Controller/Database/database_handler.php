@@ -147,7 +147,7 @@
 			echo $sql."<br>".$e.getMessage();		
 		}
 	}
-	// update_data_with_several_field_and_params(pdo_connect(),"tb_user",array("nama_user"),array("mimin"),array("kode_user"),array("2"));
+	update_data("tb_user",array("nama_user"),array("nice"),array("kode_user"),array("2"));
 
 	/*
 		Fungsi dibawah ini digunakan untuk DELETE data yang fleksibel	
@@ -294,7 +294,7 @@
 			}else{
 				$str_params = convert_params_to_str($params);
 				$sql = "SELECT ".$str_fields." FROM ".$tb_name." WHERE ".$str_params." AND ".$add;
-				// echo "$sql";
+				
 				$prepare_query = $conn->prepare($sql);
 				//Binding
 				for($i=0;$i<count($params);$i++){
