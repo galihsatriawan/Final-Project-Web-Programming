@@ -1,6 +1,7 @@
 <?php
 	include '../../Controller/Database/database_handler.php';
 	$x = select_data("tb_jenis_institusi",array(),array(),array());
+	include '../../Controller/partner/list_negara.php';
 ?>
 	
 <html>
@@ -8,7 +9,7 @@
 		<title>DAFTAR PARTNER</title>
 	</head>
 	<body>
-		<form action="proses_input.php" method="POST" name="partner" style="">
+		<form action="../../Controller/partner/proses_input.php" method="POST" name="partner" style="">
 			<table style="border: 1px solid black; text-align: left;">
 				<tr>
 					<th>Kode Institusi</th>
@@ -24,19 +25,36 @@
 					<th>Jenis Institusi</th>
 					<td>:</td>
 					<td>
-						<select name="jenis_institusi" title="Pilih Nama unit" id="unit">
-						    <?php
-								foreach($konek->select_jenis() as $x){
-							?>
-							<option value="<?php echo $x['kode_jenis_institusi'];?>" ><?php echo $x['jenis_institusi'];  ?></option>
-								<?php } ?>
+						<select name="jenis_institusi">
+						    <?php 
+
+						    	for ($i=0; $i < sizeof($x); $i++) { 
+						    		echo "<option value=\"".$x[$i]['kode_jenis_institusi']."\" >".$x[$i]['jenis_institusi']."</option>";
+						    	}
+
+						    ?>
+							
+								
 						</select>
 					</td>
 				</tr>
 				<tr>
 					<th>Negara</th>
 					<td>:</td>
-					<td><input type="text" placeholder="Negara" name="negara" title="Masukan Negara" required></td>
+					<td>
+						<select name="negara">
+						    <?php 
+								foreach($countries as $key => $value) {
+							?>
+								<option value="<?= $key ?>" title="<?= htmlspecialchars($value) ?>"><?= htmlspecialchars($value) ?></option>
+							<?php
+								}
+
+						    ?>
+							
+								
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<th>Alamat</th>
@@ -52,11 +70,6 @@
 					<th>Tlp</th>
 					<td>:</td>
 					<td><input type="text" placeholder="Telp Institusi" name="tlp_institusi" title="Masukan No Telp Institusi" required></td>
-				</tr>
-				<tr>
-					<th>Tanggal Dibuat</th>
-					<td>:</td>
-					<td><input type="date" name="tanggal_dibuat" title="Masukan tanggal dibuat" required></td>
 				</tr>
 			</table>
 			<div>	

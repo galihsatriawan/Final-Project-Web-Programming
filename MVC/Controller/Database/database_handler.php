@@ -3,8 +3,8 @@
 	function pdo_connect(){
 
 		$server = "localhost";
-		$user = "gokil";
-		$pass = "gokil";
+		$user = "root";
+		$pass = "";
 		$dbname = "partnership_db";
 
 		try {
@@ -129,7 +129,7 @@
 			$str_fields = convert_params_to_str($fields); //format sama 
 
 			$sql = "UPDATE ".$tb_name." SET ".$str_fields." WHERE ".$str_params;
-			echo "$sql";	
+			//echo "$sql";	
 			$prepare_query = $conn->prepare($sql);
 			
 			//binding fields
@@ -142,10 +142,12 @@
 			}
 			
 			$prepare_query->execute();
+			echo($sql);
 				
 		} catch (Exception $e) {
 			echo $sql."<br>".$e.getMessage();		
 		}
+
 	}
 	update_data("tb_user",array("nama_user"),array("nice"),array("kode_user"),array("2"));
 
@@ -266,7 +268,7 @@
 			default :
 				$str = $params[0]."=:".$params[0];
 				for($i=1;$i<$banyak;$i++){
-					$str = $str." AND ".$params[$i]."=:".$params[$i];
+					$str = $str.", ".$params[$i]."=:".$params[$i];
 				}
 				break;
 
