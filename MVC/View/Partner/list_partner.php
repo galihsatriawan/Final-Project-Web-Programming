@@ -7,6 +7,9 @@ include '../../Controller/Database/database_handler.php';
 		<title>DAFTAR PARTNER</title>
 	</head>
 	<body>
+		<h1 align="center">
+			DAFTAR PARTNER
+		</h1>
 		<a href="tambah.php">Tambah Partner</a>
 		<table style="border: 1px solid black">
 			<tr>

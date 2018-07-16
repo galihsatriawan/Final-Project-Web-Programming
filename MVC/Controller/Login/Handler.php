@@ -1,15 +1,15 @@
 <?php
-	include '../Database/database_handler.php';
+	// include '../Database/database_handler.php';
 	session_start();
 	// Pengecheckan login
-	function is_login(){
-		if(isset($_SESSION['username'])){
-			
-			return true;
-		}else{
-			return false;
-		}
 
+	function is_login(){
+		$lol = True;
+		if(isset($_SESSION['username'])){
+			$lol =  True;
+		}else{
+			$lol =  False;
+		}return $lol;
 	}
 
 	function get_user($params,$values){

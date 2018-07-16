@@ -79,6 +79,37 @@
 		}
 		return $hasil;
 	}
+
+	function select_jumlah($tabel,$values){
+		try{
+			if($GLOBALS['conn']==null){
+				$GLOBALS['conn'] = pdo_connect();
+			}
+			$conn=$GLOBALS['conn'];
+			//jadikan field dalam bentuk string
+			
+			if ($values!=0) {
+				$sql = "SELECT count(*) FROM ".$tabel." WHERE kode_user = '".$values."'";
+				// echo($sql);
+				$prepare_query = $conn->prepare($sql);
+				$prepare_query->execute();
+			} else {
+				$sql = "SELECT count(*) FROM ".$tabel;
+				// echo($sql);
+				$prepare_query = $conn->prepare($sql);
+				$prepare_query->execute();
+			}
+			
+				
+				
+			
+			$hasil = $prepare_query->fetchAll();
+		} catch (Exception $e) {
+			echo $sql."<br>".$e.getMessage();		
+		}
+		return $hasil[0][0];
+	}
+
 	/*
 	//Percobaan
 	$contoh = get_data_with_more_params_several_field(pdo_connect(),"tb_user",array("nama_user","kode_user"),array("kode_user"),array(1));
@@ -142,7 +173,7 @@
 			}
 			
 			$prepare_query->execute();
-			echo($sql);
+			// echo($sql);
 				
 		} catch (Exception $e) {
 			echo $sql."<br>".$e.getMessage();		

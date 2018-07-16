@@ -5,9 +5,12 @@ include '../../Controller/Database/database_handler.php';
 	
 <html>
 	<head>
-		<title>DAFTAR PARTNER</title>
+		<title>DETAIL PARTNER</title>
 	</head>
 	<body>
+		<h1 align="center">
+			DETAIL PARTNER
+		</h1>
 <?php
 	$x = select_extra("tb_partner p,tb_jenis_institusi ji",array(),array("kode_institusi"),array($_GET['id']),"p.kode_jenis_institusi=ji.kode_jenis_institusi"); ?>
 		

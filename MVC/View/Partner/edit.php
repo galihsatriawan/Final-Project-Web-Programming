@@ -7,9 +7,12 @@
 	
 <html>
 	<head>
-		<title>DAFTAR PARTNER</title>
+		<title>EDIT PARTNER</title>
 	</head>
 	<body>
+		<h1 align="center">
+			EDIT PARTNER
+		</h1>
 		<form action="../../Controller/partner/proses_edit.php" method="POST" name="partner" style="">
 			<table style="border: 1px solid black; text-align: left;">
 				<tr>
