@@ -1,5 +1,11 @@
 <?php
-include '../../Controller/Database/database_handler.php';
+	include '../../Controller/Database/database_handler.php';
+	include '../../Controller/Login/Handler.php';
+	if(is_login()){
+				
+	}else{
+		header("Location: ../Login/Login_page.php");
+	}
 ?>	
 	
 <html>
@@ -8,15 +14,7 @@ include '../../Controller/Database/database_handler.php';
 		<title>DAFTAR PARTNER</title>
 	</head>
 	<body>
-		<?php  
-			include '../../Controller/Login/Handler.php';
-			if(is_login()){
-				
-			}else{
-				header("Location: ../Login/Login_page.php");
-				// echo "belum login";
-			}
-		?>
+
 		<center><img src="../../Pictures/stiki.jpg" width="100" height="100"></center>
 		<h1 align="center">
 			DAFTAR PARTNER
@@ -45,9 +43,10 @@ include '../../Controller/Database/database_handler.php';
 					}
 					
 					echo "</td><td>";
-					if ($x[$i]['is_aktif']=="YES") {
+					// if ($x[$i]['is_aktif']=="YES") {
+					// 	echo "<a href=\"../../View/Kerjasama/List_kerjasama_page.php?id=".$x[$i]['kode_institusi']."&aksi=DK\">List kerjasama</a>";
+					// }
 						echo "<a href=\"../../View/Kerjasama/List_kerjasama_page.php?id=".$x[$i]['kode_institusi']."&aksi=DK\">List kerjasama</a>";
-					}
 					echo "</td><td>";
 					if ($x[$i]['is_aktif']=="YES") {
 						echo "<a href=\"../../View/Kerjasama/Kerjasama_page.php?id=".$x[$i]['kode_institusi']."&aksi=BK\">Buat kerjasama</a>";

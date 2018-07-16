@@ -4,18 +4,17 @@
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		include 'Handler.php';
 		include '../../Model/UserLogin.php';
-		$username = $_POST['username'];
+		$username = $_POST['kode_user'];
 		$pass = $_POST['password'];
 
-		$user = get_user(array("nama_user"),array($username));
-		// var_dump($user);
+		$user = get_user(array("kode_user"),array($username));
+		var_dump($user);
 		if(count($user)==0){
 			header("Location: ../../View/Login/Login_page.php?user=nothing");	
 		}else{
-			if($pass == $user[0]['password']){
-				$_SESSION['username'] = $username;
-				$_SESSION['user'] = $user[0]["nama_user"];
-				$_SESSION['id'] = $user[0]["kode_user"];
+			if($pass == $user[0]['password']&&'2'== $user[0]['kode_role']&&'YES' == $user[0]['is_aktif']){
+				$_SESSION['username'] = $user[0]["nama_user"];
+				$_SESSION['user'] = $user[0]["kode_user"];
 				$_SESSION['unit'] = $user[0]["kode_unit"];
 
 				header("Location: ../../View");		

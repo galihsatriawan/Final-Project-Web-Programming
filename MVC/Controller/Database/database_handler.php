@@ -77,6 +77,7 @@
 		} catch (Exception $e) {
 			echo $sql."<br>".$e.getMessage();		
 		}
+		echo $sql;
 		return $hasil;
 	}
 

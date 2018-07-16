@@ -27,9 +27,9 @@
 			<form method="POST" action="../../Controller/Login/LoginHandler.php">
 				<table style="border: 1px solid black; text-align: left;">
 					<tr>
-						<td><label for="username">Username</label></td>
+						<td><label for="username">Kode User</label></td>
 						<td>  </td>
-						<td><input type="text" name="username" placeholder="Username" "> </td>
+						<td><input type="text" name="kode_user" placeholder="Kode User" "> </td>
 					</tr>
 					<tr>
 						<td><label for="username">Password</label></td>

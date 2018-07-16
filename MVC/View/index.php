@@ -20,14 +20,13 @@
 	<center>
 		<img src="../Pictures/stiki.jpg" width="100" height="100">
 		<h1>LAPOR KERMA</h1>
-		<br><br>
-		<table>
+		<table width="250">
 			<tr>
-				<td align="left">
+				<th align="left">
 					<form action="Unit/detail_unit.php">
 						<button type="submit" value="Submit">Detail Unit</button>
 					</form>
-				</td>
+				</th>
 				<td align="right">
 					<form action="User/detail_user.php">
 						<button type="submit" value="Submit">Detail User</button>
@@ -35,6 +34,7 @@
 				</td>
 			</tr>
 		</table>
+		<br><br>
 		<table>
 			<tr>
 				<td>Username </td>
