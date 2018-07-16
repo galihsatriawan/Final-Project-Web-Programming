@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Login Page</title>
-</head>
+	<head>
+
+		<link rel="icon" href="../../Pictures/stiki.jpg">
+		<title>Login Page</title>
+	</head>
 <body>
+	<center>
 	<?php
 	/*
 		Pengecheckan Login
@@ -15,17 +18,14 @@
 		}else{
 			// echo "belum login";
 	?>
-
+	<h1>LOGIN</h1>
 	<div class="wrapper_container">
 		<div class="header">
 			
 		</div>
 		<div class="container">
 			<form method="POST" action="../../Controller/Login/LoginHandler.php">
-				<table>
-					<th>
-						<td colspan="3"> Login </td>
-					</th>
+				<table style="border: 1px solid black; text-align: left;">
 					<tr>
 						<td><label for="username">Username</label></td>
 						<td>  </td>
@@ -36,11 +36,9 @@
 						<td>  </td>
 						<td><input type="password" name="password" placeholder="Password" "> </td>
 					</tr>
-					<tr>
-						<td></td>
-						<td colspan="2"><input type="submit" name="login" value="login"></td>
-					</tr>
 				</table>
+				<br>
+				<input type="submit" name="login" value="login">
 				
 				
 			</form>
@@ -49,7 +47,7 @@
 			
 		</div>
 	</div>
-
+	</center>
 	<?php 	
 			}
 	?>

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
+	<head>
+		<link rel="icon" href="../Pictures/stiki.jpg">
+		<title>KERMA</title>
+	</head>
 <body>
 	<?php
 		include '../Controller/Login/Handler.php';
@@ -30,6 +31,10 @@
 				 <td><?php echo(": ".$_SESSION['user']); ?></td>
 			</tr>
 			<tr>
+				<td>Jumlah Partner</td>
+				<td> : <?php echo(select_jumlah("tb_partner","")); ?></td>
+			</tr>
+			<tr>
 				<td>Jumlah Kerjasama Unit</td>
 				<td> : <?php echo(select_jumlah("tb_tr_kerjasama",$_SESSION['id'])); ?></td>
 			</tr>
@@ -38,6 +43,15 @@
 				<td> : <?php echo(select_jumlah("tb_tr_kerjasama","")); ?></td>
 			</tr>
 		</table>
+		<br>
+		<form action="partner/list_partner.php">
+			<button type="submit" value="Submit">List Partner</button>
+		</form>
+		<br>
+		<form action="Kerjasama/list_kerjasama_page.php">
+			<button type="submit" value="Submit">List Kerjasama</button>
+		</form>
+		<br>
 		<form action="../Controller/Login/logout_handler.php">
 			<button type="submit" value="Submit">Logout</button>
 		</form>

@@ -4,12 +4,15 @@ include '../../Controller/Database/database_handler.php';
 	
 <html>
 	<head>
+		<link rel="icon" href="../../Pictures/stiki.jpg">
 		<title>DAFTAR PARTNER</title>
 	</head>
 	<body>
+		<center><img src="../../Pictures/stiki.jpg" width="100" height="100"></center>
 		<h1 align="center">
 			DAFTAR PARTNER
 		</h1>
+		<center>
 		<a href="tambah.php">Tambah Partner</a>
 		<table style="border: 1px solid black">
 			<tr>
@@ -51,6 +54,8 @@ include '../../Controller/Database/database_handler.php';
 			}
 				
 			?>
-		</table>
+		</table><br>
+		<a href="../">Home</a>
+		</center>
 	</body>
 </html>

@@ -7,12 +7,14 @@
 	
 <html>
 	<head>
+		<link rel="icon" href="../../Pictures/stiki.jpg">
 		<title>EDIT PARTNER</title>
 	</head>
 	<body>
+		<center><img src="../../Pictures/stiki.jpg" width="100" height="100"></center>
 		<h1 align="center">
 			EDIT PARTNER
-		</h1>
+		</h1><center>
 		<form action="../../Controller/partner/proses_edit.php" method="POST" name="partner" style="">
 			<table style="border: 1px solid black; text-align: left;">
 				<tr>
@@ -95,5 +97,6 @@
 				<input type="submit" value="Close" class="btn" name="cancel" onclick="window.history.back();return false;">
 			</div>
 		</form>
+		</center>
 	</body>
 </html>
