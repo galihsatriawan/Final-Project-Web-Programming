@@ -31,11 +31,11 @@
 			</tr>
 			<tr>
 				<td>Jumlah Kerjasama Unit</td>
-				<td> : <?php echo(select_jumlah($_SESSION['id'])); ?></td>
+				<td> : <?php echo(select_jumlah("tb_tr_kerjasama",$_SESSION['id'])); ?></td>
 			</tr>
 			<tr>
 				<td>Jumlah Kerjasama STIKI</td>
-				<td> : <?php echo(select_jumlah("")); ?></td>
+				<td> : <?php echo(select_jumlah("tb_tr_kerjasama","")); ?></td>
 			</tr>
 		</table>
 		<form action="../Controller/Login/logout_handler.php">
