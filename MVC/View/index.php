@@ -23,6 +23,20 @@
 		<br><br>
 		<table>
 			<tr>
+				<td>
+					<form action="Unit/detail_unit.php">
+						<button type="submit" value="Submit">Detail Unit</button>
+					</form>
+				</td>
+				<td>
+					<form action="User/detail_user.php">
+						<button type="submit" value="Submit">Detail User</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
 				<td>Username </td>
 				<td><?php echo(": ".$_SESSION['username']); ?></td>
 			</tr>
@@ -44,13 +58,23 @@
 			</tr>
 		</table>
 		<br>
-		<form action="partner/list_partner.php">
-			<button type="submit" value="Submit">List Partner</button>
-		</form>
+		<table>
+			<tr>
+				<td>
+					<form action="partner/list_partner.php">
+						<button type="submit" value="Submit">List Partner</button>
+					</form>
+				</td>
+				<td>
+					<form action="Kerjasama/list_kerjasama_page.php">
+						<button type="submit" value="Submit">List Kerjasama</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+		
 		<br>
-		<form action="Kerjasama/list_kerjasama_page.php">
-			<button type="submit" value="Submit">List Kerjasama</button>
-		</form>
+		
 		<br>
 		<form action="../Controller/Login/logout_handler.php">
 			<button type="submit" value="Submit">Logout</button>

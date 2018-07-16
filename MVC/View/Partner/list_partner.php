@@ -8,12 +8,23 @@ include '../../Controller/Database/database_handler.php';
 		<title>DAFTAR PARTNER</title>
 	</head>
 	<body>
+		<?php  
+			include '../../Controller/Login/Handler.php';
+			if(is_login()){
+				
+			}else{
+				header("Location: ../Login/Login_page.php");
+				// echo "belum login";
+			}
+		?>
 		<center><img src="../../Pictures/stiki.jpg" width="100" height="100"></center>
 		<h1 align="center">
 			DAFTAR PARTNER
 		</h1>
 		<center>
-		<a href="tambah.php">Tambah Partner</a>
+			<form action="tambah.php">
+			<button type="submit" value="Submit">Tambah Partner</button>
+			</form>
 		<table style="border: 1px solid black">
 			<tr>
 				<th>NO</th>
@@ -55,7 +66,9 @@ include '../../Controller/Database/database_handler.php';
 				
 			?>
 		</table><br>
-		<a href="../">Home</a>
+			<form action="../">
+			<button type="submit" value="Submit">Home</button>
+			</form>
 		</center>
 	</body>
 </html>

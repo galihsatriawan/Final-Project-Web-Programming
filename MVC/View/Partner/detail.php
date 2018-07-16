@@ -10,6 +10,14 @@ include '../../Controller/Database/database_handler.php';
 	</head>
 	<body>
 		
+		<?php  
+			include '../../Controller/Login/Handler.php';
+			if(is_login()){
+				
+			}else{
+				header("Location: ../Login/Login_page.php");
+			}
+		?>
 		<center><img src="../../Pictures/stiki.jpg" width="100" height="100"></center>
 		<h1 align="center">
 			DETAIL PARTNER

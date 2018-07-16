@@ -6,9 +6,23 @@
 	
 <html>
 	<head>
-		<title>DAFTAR PARTNER</title>
+		<link rel="icon" href="../../Pictures/stiki.jpg">
+		<title>PARTNER</title>
 	</head>
 	<body>
+		
+		<?php  
+			include '../../Controller/Login/Handler.php';
+			if(is_login()){
+				
+			}else{
+				header("Location: ../Login/Login_page.php");
+			}
+		?>
+		<center><img src="../../Pictures/stiki.jpg" width="100" height="100"></center>
+		<h1 align="center">
+			PARTNER
+		</h1><center>
 		<form action="../../Controller/partner/proses_input.php" method="POST" name="partner" style="">
 			<table style="border: 1px solid black; text-align: left;">
 				<tr>
@@ -72,10 +86,12 @@
 					<td><input type="text" placeholder="Telp Institusi" name="tlp_institusi" title="Masukan No Telp Institusi" required></td>
 				</tr>
 			</table>
+			<br>
 			<div>	
 				<input type="submit" value="Masukan Data" class="btn" name="submit">
 				<input type="submit" value="Close" class="btn" name="cancel" onclick="window.history.back();return false;">
 			</div>
 		</form>
+	</center>
 	</body>
 </html>
