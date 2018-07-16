@@ -48,7 +48,6 @@
 						    		} else {
 						    			$select = "";
 						    		}
-						    		/*$x[$i]['jenis_institusi']*/
 						    		echo "<option value='".$x[$i]['kode_jenis_institusi']."' ".$select.">".$x[$i]['jenis_institusi']."</option>";
 						    	}
 

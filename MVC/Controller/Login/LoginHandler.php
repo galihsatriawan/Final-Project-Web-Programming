@@ -16,6 +16,7 @@
 				$_SESSION['username'] = $username;
 				$_SESSION['user'] = $user[0]["nama_user"];
 				$_SESSION['id'] = $user[0]["kode_user"];
+				$_SESSION['unit'] = $user[0]["kode_unit"];
 
 				header("Location: ../../View");		
 			}else{

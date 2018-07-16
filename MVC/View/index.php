@@ -23,12 +23,12 @@
 		<br><br>
 		<table>
 			<tr>
-				<td>
+				<td align="left">
 					<form action="Unit/detail_unit.php">
 						<button type="submit" value="Submit">Detail Unit</button>
 					</form>
 				</td>
-				<td>
+				<td align="right">
 					<form action="User/detail_user.php">
 						<button type="submit" value="Submit">Detail User</button>
 					</form>
@@ -41,7 +41,7 @@
 				<td><?php echo(": ".$_SESSION['username']); ?></td>
 			</tr>
 			<tr>
-				<td>User  </td>
+				<td>Id User  </td>
 				 <td><?php echo(": ".$_SESSION['user']); ?></td>
 			</tr>
 			<tr>

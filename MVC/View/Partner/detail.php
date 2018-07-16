@@ -1,5 +1,13 @@
 <?php
-include '../../Controller/Database/database_handler.php';
+	include '../../Controller/Database/database_handler.php';
+	include '../../Controller/Login/Handler.php';
+	if(is_login()){
+					
+	}else{
+		header("Location: ../Login/Login_page.php");
+	}
+	$x = select_extra("tb_partner p,tb_jenis_institusi ji",array(),array("kode_institusi"),array($_GET['id']),"p.kode_jenis_institusi=ji.kode_jenis_institusi");
+	include '../../Controller/partner/list_negara.php';
 
 ?>	
 	
@@ -10,21 +18,14 @@ include '../../Controller/Database/database_handler.php';
 	</head>
 	<body>
 		
-		<?php  
-			include '../../Controller/Login/Handler.php';
-			if(is_login()){
-				
-			}else{
-				header("Location: ../Login/Login_page.php");
-			}
+		<?php
 		?>
 		<center><img src="../../Pictures/stiki.jpg" width="100" height="100"></center>
 		<h1 align="center">
 			DETAIL PARTNER
 		</h1>
-<?php
 
-	$x = select_extra("tb_partner p,tb_jenis_institusi ji",array(),array("kode_institusi"),array($_GET['id']),"p.kode_jenis_institusi=ji.kode_jenis_institusi"); ?>
+			
 		<center>
 		<table style="border: 1px solid black; text-align: left;">
 			<tr>
@@ -45,7 +46,14 @@ include '../../Controller/Database/database_handler.php';
 			<tr>
 				<th>Negara</th>
 				<td>:</td>
-				<td><?php echo $x[0]['negara']; ?></td>
+				<td>
+					<?php foreach($countries as $key=>$val){
+	  					if ($key == $x[0]['negara']) {
+	  						echo $val;
+	  					}
+  					} 
+					?>	
+				</td>
 			</tr>
 			<tr>
 				<th>Alamat</th>
