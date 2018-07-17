@@ -24,7 +24,7 @@
 				Edit Unit
 			</h1>
 		<table style="border: 1px solid black; text-align: left;">
-				<form action="../../Controller/unit/proses_edit.php" method="POST" name="unit" style="">
+				<form <?php echo"action=\"../../Controller/unit/proses_edit.php?id=".$y[0]['kode_unit']."\""; ?> method="POST" name="unit" style="">
 				<tr>
 					<th>Kode Unit</th>
 					<td>:</td>

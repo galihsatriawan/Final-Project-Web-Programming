@@ -1,32 +1,27 @@
+<?php
+	include '../../Controller/admin/AdminHandler.php';
+	if(is_login()){
+		include 'admin.php';
+	}else{
+
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
 
 		<link rel="icon" href="../../Pictures/stiki.jpg">
-		<title>Login Page</title>
+		<title>Login Admin</title>
 	</head>
 <body>
 	<center>
-	<?php
-	/*
-		Pengecheckan Login
-	*/
-		include '../../Controller/Login/Handler.php';
-		if(is_login()){
-			header("Location: ../");
-			// echo "sudah_login";
-		}else{
-
-		}
-			// echo "belum login";
-	?>
-	<h1>LOGIN</h1>
+	<h1>LOGIN ADMIN</h1>
 	<div class="wrapper_container">
 		<div class="header">
 			
 		</div>
 		<div class="container">
-			<form method="POST" action="../../Controller/Login/LoginHandler.php">
+			<form method="POST" action="../../Controller/Admin/LoginHandler.php">
 				<table style="border: 1px solid black; text-align: left;">
 					<tr>
 						<td><label for="username">Kode User</label></td>
@@ -40,6 +35,7 @@
 					</tr>
 				</table>
 				<br>
+				
 				<input type="submit" name="login" value="login">
 				
 				

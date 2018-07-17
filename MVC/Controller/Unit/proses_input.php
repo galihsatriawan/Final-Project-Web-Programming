@@ -9,15 +9,13 @@
 			$telp_kantor	= $_POST['telp_kantor'];
 
 			
-			update_data(
+			insert_data(
 				"tb_unit", 
-				array("nama_unit", "email_unit", "telp_kantor"),
-				array($nama_unit, $email_unit,$telp_kantor),
-				array('kode_unit'),
-				array($kode_unit)
+				array("kode_unit","nama_unit", "email_unit", "telp_kantor"),
+				array($kode_unit, $nama_unit, $email_unit,$telp_kantor)
 			);
 
-			header("Location: ../../view/unit/detail_unit.php?id=".$_GET['id']);
+			header("Location: ../../view/unit/list_unit.php");
 			
 		}
 ?>

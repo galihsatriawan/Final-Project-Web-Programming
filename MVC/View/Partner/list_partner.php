@@ -66,7 +66,7 @@
 			?>
 		</table><br>
 			<form action="../">
-			<button type="submit" value="Submit">Home</button>
+				<button type="submit" value="Submit">Home</button>
 			</form>
 		</center>
 	</body>

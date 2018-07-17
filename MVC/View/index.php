@@ -9,8 +9,10 @@
 		include '../Controller/Login/Handler.php';
 		include '../Controller/Database/database_handler.php';
 		if(is_login()){
+			if (isset($_SESSION['admin'])) {
+				header("Location: Admin/Admin.php");
+			} 
 			
-			echo "<marquee>Welcome ".$_SESSION['username']."</marquee>";
 		}else{
 			header("Location: Login/Login_page.php");
 			// echo "belum login";
@@ -50,7 +52,7 @@
 			</tr>
 			<tr>
 				<td>Jumlah Kerjasama Unit</td>
-				<td> : <?php echo(select_jumlah("tb_tr_kerjasama",$_SESSION['id'])); ?></td>
+				<td> : <?php echo(select_jumlah("tb_tr_kerjasama",$_SESSION['user'])); ?></td>
 			</tr>
 			<tr>
 				<td>Jumlah Kerjasama STIKI</td>

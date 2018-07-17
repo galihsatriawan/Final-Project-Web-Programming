@@ -7,7 +7,7 @@
 		}
 
 	include '../../Controller/Database/database_handler.php';
-		$x = select_data("tb_unit",array(),array("kode_unit"),array($_SESSION['unit']));
+		$x = select_data("tb_unit",array(),array("kode_unit"),array($_GET['id']));
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,11 +47,11 @@
 		<table width="200">
 			<tr>
 				<th align="left">
-					<a href="../">Home</a>
+					<a href="../index.php?">Home</a>
 				</th>
 				<td align="right"> 
 					<?php 
-					 echo "<a href=\"edit_unit.php?id=".$x[0]['kode_unit']."&aksi=edit\">Edit</a>";
+					 	echo "<a href=\"edit_unit.php?id=".$x[0]['kode_unit']."&aksi=edit\">Edit</a>";
 					 ?>
 				</td>
 			</tr>
