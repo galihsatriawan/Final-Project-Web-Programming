@@ -63,12 +63,12 @@
 		<table>
 			<tr>
 				<td>
-					<form action="partner/list_partner.php">
+					<form action="Partner/list_partner.php">
 						<button type="submit" value="Submit">List Partner</button>
 					</form>
 				</td>
 				<td>
-					<form action="Kerjasama/list_kerjasama_page.php">
+					<form action="Kerjasama/Seluruh_kerjasama.php">
 						<button type="submit" value="Submit">List Kerjasama</button>
 					</form>
 				</td>
