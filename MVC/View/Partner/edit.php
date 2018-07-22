@@ -7,9 +7,22 @@
 	
 <html>
 	<head>
-		<title>DAFTAR PARTNER</title>
+		<link rel="icon" href="../../Pictures/stiki.jpg">
+		<title>EDIT PARTNER</title>
 	</head>
 	<body>
+		<?php  
+			include '../../Controller/Login/Handler.php';
+			if(is_login()){
+				
+			}else{
+				header("Location: ../Login/Login_page.php");
+			}
+		?>
+		<center><img src="../../Pictures/stiki.jpg" width="100" height="100"></center>
+		<h1 align="center">
+			EDIT PARTNER
+		</h1><center>
 		<form action="../../Controller/partner/proses_edit.php" method="POST" name="partner" style="">
 			<table style="border: 1px solid black; text-align: left;">
 				<tr>
@@ -35,7 +48,6 @@
 						    		} else {
 						    			$select = "";
 						    		}
-						    		/*$x[$i]['jenis_institusi']*/
 						    		echo "<option value='".$x[$i]['kode_jenis_institusi']."' ".$select.">".$x[$i]['jenis_institusi']."</option>";
 						    	}
 
@@ -92,5 +104,6 @@
 				<input type="submit" value="Close" class="btn" name="cancel" onclick="window.history.back();return false;">
 			</div>
 		</form>
+		</center>
 	</body>
 </html>

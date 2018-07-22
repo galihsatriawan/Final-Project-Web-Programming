@@ -17,37 +17,8 @@
 		}
 
 		return $conn;
-	}	
-	// pdo_connect();
-	// function get_data_with_one_param($conn,$tb_name,$param,$value){
-	// 	$sql = "SELECT * FROM ".$tb_name." WHERE ".$param." = :".$param;
-	// 	// echo "$sql";
-	// 	try {
-	// 		$prepare_query = $conn->prepare($sql);
-	// 		//Bind
-	// 		$prepare_query->bindValue(":".$param,$value);
-	// 		//Eksekusi
-	// 		$prepare_query->execute();
-	// 		//Ambil semua
-	// 		$hasil = $prepare_query->fetchAll();
-	// 		// echo "Sukses juga";
-	// 		print_r($hasil);
-	// 	} catch (Exception $e) {
-	// 		echo "gagal";
-	// 		die("Get data failed :".$e.getMessage());	
-	// 	}
-	// 	return $hasil;
-	// }
-	/*
-		Contoh Pemakaian
-	 get_data_with_one_param(pdo_connect(),"tb_user","kode_user",1);
+	}
 
-	*/
-
-	/*
-		Fungsi dibawah ini digunakan untuk SELECT data yang fleksibel	
-	*/
-		//get_data_with_more_params_several_field
 	function select_data($tb_name,$fields,$params,$values){
 		try{
 			if($GLOBALS['conn']==null){
@@ -80,16 +51,36 @@
 		return $hasil;
 	}
 
-	/*
-	//Percobaan
-	$contoh = get_data_with_more_params_several_field(pdo_connect(),"tb_user",array("nama_user","kode_user"),array("kode_user"),array(1));
-	print_r($contoh);
-	*/
+	function select_jumlah($tabel,$values){
+		try{
+			if($GLOBALS['conn']==null){
+				$GLOBALS['conn'] = pdo_connect();
+			}
+			$conn=$GLOBALS['conn'];
+			//jadikan field dalam bentuk string
+			
+			if ($values!=0) {
+				$sql = "SELECT count(*) FROM ".$tabel." WHERE kode_user = '".$values."'";
+				// echo($sql);
+				$prepare_query = $conn->prepare($sql);
+				$prepare_query->execute();
+			} else {
+				$sql = "SELECT count(*) FROM ".$tabel;
+				// echo($sql);
+				$prepare_query = $conn->prepare($sql);
+				$prepare_query->execute();
+			}
+			
+				
+				
+			
+			$hasil = $prepare_query->fetchAll();
+		} catch (Exception $e) {
+			echo $sql."<br>".$e.getMessage();		
+		}
+		return $hasil[0][0];
+	}
 
-
-	/*
-		Fungsi dibawah ini digunakan untuk INSERT data yang fleksibel	
-	*/
 	// insert_data_with_several_field
 	function insert_data($tb_name,$fields,$values){
 		// INSERT INTO tb_jenis_institusi(kode_jenis_institusi,jenis_institusi) VALUES (1,"Perguruan Tinggi")
@@ -111,11 +102,7 @@
 			echo $sql."<br>".$e.getMessage();		
 		}
 	}
-	// insert_data_with_several_field(pdo_connect(),"tb_user",array("kode_user","nama_user"),array(2,"admin"));
 
-	/*
-		Fungsi dibawah ini digunakan untuk UPDATE data yang fleksibel	
-	*/
 	// update_data_with_several_field_and_params
 	function update_data($tb_name,$fields,$values_fields,$params,$values_params){
 
@@ -143,7 +130,7 @@
 			}
 			
 			$prepare_query->execute();
-			echo($sql);
+			// echo($sql);
 				
 		} catch (Exception $e) {
 			echo $sql."<br>".$e.getMessage();		
@@ -244,16 +231,7 @@
 		return $str;
 	}
 	/*
-	percobaan untuk menghitung panjang array
 	
-	$test = array(1,2);
-	echo count($test);
-	*/
-	/* Percobaan convert
-		
-	*/
-	// echo convert_field_to_str(array("oke","hello","see"));
-
 	/*
 		fungsi ini digunakan untuk merubah array of params menjadi string (kode,nama, dsb)
 	*/

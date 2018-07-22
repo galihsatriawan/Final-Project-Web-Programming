@@ -1,17 +1,32 @@
 <?php
-include '../../Controller/Database/database_handler.php';
+	include '../../Controller/Database/database_handler.php';
+	include '../../Controller/Login/Handler.php';
+	if(is_login()){
+					
+	}else{
+		header("Location: ../Login/Login_page.php");
+	}
+	$x = select_extra("tb_partner p,tb_jenis_institusi ji",array(),array("kode_institusi"),array($_GET['id']),"p.kode_jenis_institusi=ji.kode_jenis_institusi");
+	include '../../Controller/partner/list_negara.php';
 
 ?>	
 	
 <html>
 	<head>
-		<title>DAFTAR PARTNER</title>
+		<link rel="icon" href="../../Pictures/stiki.jpg">
+		<title>DETAIL PARTNER</title>
 	</head>
 	<body>
-<?php
-	$x = select_extra("tb_partner p,tb_jenis_institusi ji",array(),array("kode_institusi"),array($_GET['id']),"p.kode_jenis_institusi=ji.kode_jenis_institusi"); ?>
 		
+		<?php
+		?>
+		<center><img src="../../Pictures/stiki.jpg" width="100" height="100"></center>
+		<h1 align="center">
+			DETAIL PARTNER
+		</h1>
 
+			
+		<center>
 		<table style="border: 1px solid black; text-align: left;">
 			<tr>
 				<th>Kode Institusi</th>
@@ -31,7 +46,14 @@ include '../../Controller/Database/database_handler.php';
 			<tr>
 				<th>Negara</th>
 				<td>:</td>
-				<td><?php echo $x[0]['negara']; ?></td>
+				<td>
+					<?php foreach($countries as $key=>$val){
+	  					if ($key == $x[0]['negara']) {
+	  						echo $val;
+	  					}
+  					} 
+					?>	
+				</td>
 			</tr>
 			<tr>
 				<th>Alamat</th>
@@ -60,12 +82,12 @@ include '../../Controller/Database/database_handler.php';
 			</tr>
 		</table>
 		<br>
-		<table width="600">
+		<table width="350">
 			<tr>
 				<td>
 					<a href="list_partner.php">Back</a>
 				</td>
-				<td>
+				<td align="right">
 					 <?php 
 					 echo "<a href=\"edit.php?id=".$x[0]['kode_institusi']."&aksi=edit\">Edit</a>";
 					 ?>
@@ -73,6 +95,6 @@ include '../../Controller/Database/database_handler.php';
 			</tr>
 
 		</table>
-		
+		</center>
 	</body>
 </html>
