@@ -1,7 +1,8 @@
 <?php
+	// session_start();
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		include 'Handler.php';
-		include '../../Model/UserLogin.php';
+		// include '../../Model/UserLogin.php';
 		$username = $_POST['username'];
 		$pass = $_POST['password'];
 

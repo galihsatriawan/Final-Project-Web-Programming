@@ -6,17 +6,18 @@
 </head>
 <body>
 	<?php
-		include '../../Controller/Database/database_handler.php';
+		include '../../Controller/Kerjasama/seluruh_kerjasama_handler.php';
 	?>
-
+	<table>
+		<?php for($i=0;$i<count($all_data);$i++){?>
+		<tr>
+			<td><?php echo $all_data[0]['no_dokumen']; ?></td>
+			<td></td>
+		</tr>
+		<?php }?>
+	</table>
 	<?php
-		$field = array(); //all
-		$params = array();
-		$values = array(); 
-		$addition = "tk.kode_institusi = tp.kode_institusi AND tk.kode_kerjasama = tbk.kode_kerjasama";
-		$kerjasama = select_extra("tb_tr_kerjasama tk, tb_partner tp , tb_tr_bentuk_kerjasama tbk",$field,$params,$values,$addition);
-		// var_dump($kerjasama);
-
+		
 	?>
 	
 </body>

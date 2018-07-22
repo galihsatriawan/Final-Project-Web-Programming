@@ -3,8 +3,8 @@
 	function pdo_connect(){
 
 		$server = "localhost";
-		$user = "root";
-		$pass = "";
+		$user = "gokil";
+		$pass = "gokil";
 		$dbname = "partnership_db";
 
 		try {
@@ -79,6 +79,7 @@
 		}
 		return $hasil;
 	}
+
 	/*
 	//Percobaan
 	$contoh = get_data_with_more_params_several_field(pdo_connect(),"tb_user",array("nama_user","kode_user"),array("kode_user"),array(1));
@@ -149,7 +150,7 @@
 		}
 
 	}
-	update_data("tb_user",array("nama_user"),array("nice"),array("kode_user"),array("2"));
+	// update_data("tb_user",array("nama_user"),array("nice"),array("kode_user"),array("2"));
 
 	/*
 		Fungsi dibawah ini digunakan untuk DELETE data yang fleksibel	
@@ -313,4 +314,23 @@
 		}
 		return $hasil;
 	}
+	function query_biasa($sql){
+		try {
+			// echo $sql;
+			if($GLOBALS['conn']==null){
+				$GLOBALS['conn'] = pdo_connect();
+			}
+
+			$conn=$GLOBALS['conn'];
+			$prepare_query = $conn->prepare($sql);
+			$prepare_query->execute();
+			$hasil = $prepare_query->fetchAll();		
+			// print_r($hasil);
+
+		} catch (Exception $e) {
+			echo $sql."<br>".$e.getMessage();					
+		}	
+		return $hasil;	
+	}
+	// query_biasa("Select * from tb_user");
 ?>
