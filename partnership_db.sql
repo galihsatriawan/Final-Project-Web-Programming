@@ -94,8 +94,8 @@ DROP TABLE IF EXISTS `tb_tr_bentuk_kerjasama`;
 CREATE TABLE `tb_tr_bentuk_kerjasama` (
   `kode_bentuk_kerjasama` varchar(6) NOT NULL,
   `kode_kerjasama` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`kode_bentuk_kerjasama`),
   KEY `fk_kerjasama` (`kode_kerjasama`),
+  KEY `fk_bentuk_kerjasama` (`kode_bentuk_kerjasama`),
   CONSTRAINT `fk_bentuk_kerjasama` FOREIGN KEY (`kode_bentuk_kerjasama`) REFERENCES `tb_bentuk_kerjasama` (`kode_bentuk_kerjasama`),
   CONSTRAINT `fk_kerjasama` FOREIGN KEY (`kode_kerjasama`) REFERENCES `tb_tr_kerjasama` (`kode_kerjasama`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

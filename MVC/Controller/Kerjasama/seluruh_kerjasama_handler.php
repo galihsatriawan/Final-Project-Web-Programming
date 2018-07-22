@@ -54,6 +54,7 @@ AND kr.jenis_dokumen_kerjasama LIKE \"%$doc%\"
 
 GROUP BY kr.kode_kerjasama";
 	// $test = $sql;
+	// echo "$sql";
 	$all_data = query_biasa($sql);
 }
 	$institusi = select_data("tb_jenis_institusi",array(),array(),array());

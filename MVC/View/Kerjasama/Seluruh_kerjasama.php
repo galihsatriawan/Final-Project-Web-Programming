@@ -108,16 +108,17 @@
 			<th>Nama Institusi</th>
 			<th width="200">Deskripsi Kerjasama</th>
 			<th>Negara</th>
-			<th>Periode Kerjasama</th>
+			<th width="200">Bentuk Kerjasama</th>
 			<th>Tanggal Expiry</th>
 			<th>Status</th>
 			<th>Aksi</th>
 		</tr>	
 		<?php 
 		$i=0;
-		
+			//print_r($all_data);
 			foreach ($all_data as $data ) {
-				if($data['is_aktif']=="YES"){	
+				//echo $data['no_dokumen']." ".$data['is_aktif'];
+				if($data[22]=="YES"){	
 			?>
 		<tr>
 			<td><?php echo ++$i; ?></td>
@@ -126,14 +127,14 @@
 			<td><?php echo $data['nama_institusi']; ?></td>
 			<td ><?php echo $data['deskripsi_kerjasama']; ?></td>
 			<td ><?php echo $data['negara']; ?></td>
-			<td ><?php echo $data['periode_kerjasama']; ?></td>
+			<td ><?php echo $data['kode']; ?></td>
 			<td ><?php echo $data['tgl_akhir']; ?></td>
 			<td ><?php echo $data['status_kerjasama']; ?></td>
 			<td>
-				<a href="Kerjasama_page.php<?php echo "?id=".$data['kode_kerjasama']?>"><button>Detail</button></a>
+				<a href="Detail_kerjasama_page.php<?php echo "?id=".$data['kode_kerjasama']?>"><button>Detail</button></a>
 				<?php if($data['kode_user']==$_SESSION['user']){?>
-					<a href=""><button>Edit</button></a>
-					<a href=""><button>Delete</button></a>
+					<a href="../"><button>Edit</button></a>
+					<a href="../../Controller/Kerjasama/delete_handler.php?id=<?php echo $data['kode_kerjasama'];?> "><button>Delete</button></a>
 				<?php }?>
 			</td>
 		</tr>
