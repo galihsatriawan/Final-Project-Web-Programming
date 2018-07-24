@@ -21,12 +21,13 @@
 </head>
 <body>
 	<?php
-		session_start();
+		// session_start();
 		include '../../Controller/Kerjasama/seluruh_kerjasama_handler.php';
 		include '../header.php';
 		//var_dump($institusi);
-		// var_dump($bentuk_kerja);
-		echo "$test";
+		// var_dump($all_data);
+		$data = $all_data;
+//	echo "$test";
 	?>
 	<h1 align="center">
 			SELURUH KERJASAMA
@@ -118,7 +119,7 @@
 			//print_r($all_data);
 			foreach ($all_data as $data ) {
 				//echo $data['no_dokumen']." ".$data['is_aktif'];
-				if($data[22]=="YES"){	
+				if($data['is_aktif']=="YES"){	
 			?>
 		<tr>
 			<td><?php echo ++$i; ?></td>
@@ -133,7 +134,7 @@
 			<td>
 				<a href="Detail_kerjasama_page.php<?php echo "?id=".$data['kode_kerjasama']?>"><button>Detail</button></a>
 				<?php if($data['kode_user']==$_SESSION['user']){?>
-					<a href="../"><button>Edit</button></a>
+					<a href="Kerjasama_page.php?idKerja=<?php echo $data['kode_kerjasama'] ?>&aksi=edit&id=<?php echo $data['kode_institusi'] ?>"><button>Edit</button></a>
 					<a href="../../Controller/Kerjasama/delete_handler.php?id=<?php echo $data['kode_kerjasama'];?> "><button>Delete</button></a>
 				<?php }?>
 			</td>

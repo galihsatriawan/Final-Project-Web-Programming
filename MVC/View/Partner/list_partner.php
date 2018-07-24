@@ -49,7 +49,7 @@
 						echo "<a href=\"../../View/Kerjasama/List_kerjasama_page.php?id=".$x[$i]['kode_institusi']."&aksi=DK\">List kerjasama</a>";
 					echo "</td><td>";
 					if ($x[$i]['is_aktif']=="YES") {
-						echo "<a href=\"../../View/Kerjasama/Kerjasama_page.php?id=".$x[$i]['kode_institusi']."&aksi=BK\">Buat kerjasama</a>";
+						echo "<a href=\"../../View/Kerjasama/Kerjasama_page.php?id=".$x[$i]['kode_institusi']."&aksi=tambah\">Buat kerjasama</a>";
 					}
 					echo "</td><td>";
 
